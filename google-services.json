@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "954386419090",
+    "firebase_url": "https://ominum-pro.firebaseio.com",
+    "project_id": "ominum-pro",
+    "storage_bucket": "ominum-pro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954386419090:android:4a010e2d31b51731c6054b",
+        "android_client_info": {
+          "package_name": "com.ominumpro.vieva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954386419090-nkbsdlq9f8adrl4d5i1npp9277aid7g0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy-G2wuw57iw0htoL1p6F6sMGZAtjSTK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954386419090-nkbsdlq9f8adrl4d5i1npp9277aid7g0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "954386419090-de0kq3kur6l9k0hn6ngl2mql7u95etf4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ominumpro.vieva"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

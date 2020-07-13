@@ -1,0 +1,32 @@
+<ion-content>
+  <div class="page-container gradient-green dark">
+    <ion-card class="wide-full hide-box-shadow">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center text-uppercase color-white">
+          {{language.getWordByLanguage('coachingCheck')}}
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <div class="slides-container ion-padding">
+      <div class="survey-question color-white text-bold">
+        {{question[language.getCurrentLanguage()]}}
+      </div>
+      <div class="answer-container">
+        <ul class="answers-list no-margin"
+            [ngClass]="hasAnswer() + ' score-' + answer">
+          <li class="answer-item ion-text-left color-white"
+              [ngClass]="answer == j ? 'active' : ''"
+              *ngFor="let answerLabel of answers[language.getCurrentLanguage()]; let j = index;" (click)="answer = j">
+            {{answerLabel}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-bar ion-text-center">
+      <label class="secure-store color-white">
+        {{bottomTitles[language.getCurrentLanguage()]}}
+      </label>
+      <ion-button class="white-green-button" type="button" expand="block" color="primary" style="margin-top: 10px;" (click)="navigateToReview()"> Next </ion-button>
+    </div>
+  </div>
+</ion-content>

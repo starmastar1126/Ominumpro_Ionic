@@ -1,0 +1,284 @@
+.slide-card {
+  width: 100%;
+  height: 300px;
+
+  .card-top-bar {
+    height: 90px;
+
+    img {
+      float: left;
+      width: 40px;
+    }
+
+    .card-info {
+      float: left;
+      padding-left: 20px;
+
+      label {
+        display: block;
+      }
+
+      ion-rating {
+        height: 30px;
+        --star-color: #CCCCCC;
+        --star-color-filled: white;
+      }
+
+      .card-user-time {
+        padding-left: 20px;
+        font-size: 12px;
+        background-image: url("../../../assets/images/icon_watch.png");
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+      }
+    }
+  }
+
+  ion-card-content {
+    height: 210px;
+
+    .card-user-description {
+      display: block;
+      height: 100%;
+      font-size: 13px;
+      overflow-y: auto;
+    }
+  }
+}
+
+ion-card * {
+  transition: all .5s;
+}
+
+ion-card-content {
+  padding-top: 0;
+}
+
+ion-card.opened {
+  ion-card-header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+}
+
+ion-card.closed {
+  ion-card-header {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .has-carrot.carrot-gray::before {
+    transform: rotate(180deg);
+  }
+
+  ion-card-content {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    ol {
+      margin: 0;
+
+      li {
+        margin: 0;
+      }
+    }
+  }
+}
+
+ol {
+  padding-left: 20px;
+  margin-bottom: 0;
+
+  li {
+    margin-top: 10px;
+  }
+}
+
+.has-carrot.carrot-gray::before {
+  right: 0;
+  top: 10px;
+  transition: all .5s;
+}
+
+.overlay {
+  transform: translate(0, 0);
+  transition: all .5s;
+
+  ion-card {
+    top: 50%;
+    background: white;
+    transform: translate(0%, -32%);
+
+    ion-card-content {
+      ion-title {
+        font-size: 20px;
+      }
+
+      table {
+        width: 280px;
+        height: 280px;
+        font-size: 14px;
+
+        thead {
+          opacity: .5;
+        }
+
+        td {
+          padding: 2px;
+
+          label {
+            display: block;
+            width: 36px;
+            height: 36px;
+            padding: 8px;
+            border-radius: 50%;
+          }
+
+          label.disabled {
+            opacity: .5;
+          }
+        }
+      }
+
+      .d-flex {
+        display: flex;
+        ion-select {
+          min-width: 100%;
+          font-size: 14px;
+        }
+      }
+
+      .width-60 {
+        width: 60%;
+        margin-top: 10px;
+      }
+
+      ion-select {
+        padding-left: 5px;
+        float: right;
+      }
+
+      ion-item.time-picker {
+        padding-left: 40px;
+        ion-label {
+          display: block;
+          width: 100%;
+          padding: 10px 20px;
+          border-bottom: 1px solid #ccc;
+        }
+
+        ion-label::before {
+          top: 20px;
+          right: 20px;
+          transform: rotate(180deg);
+        }
+      }
+
+      ion-item.time-picker.opened {
+        ion-label::before {
+          transform: rotate(0deg);
+        }
+      }
+
+      .clock-face-container {
+        display: block;
+        width: 100%;
+        height: 250px;
+        margin-top: 10px;
+        -webkit-transition: all .5s;
+        transition: all .5s;
+
+        canvas {
+          width: 250px;
+          height: 250px;
+          border: 2px solid #10D9B3;
+          border-radius: 50%;
+          -webkit-transition: all .5s;
+          transition: all .5s;
+        }
+      }
+
+      .clock-face-container.closed {
+        height: 0;
+
+        canvas {
+          height: 0;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.overlay.hide {
+  transform: translate(0, -125%);
+}
+
+.custon-nav{
+    height: 48px;
+    width: 20px;
+    cursor: pointer;
+ 
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev-icon-custom.disabled{
+    opacity: 0.4;
+    cursor: default;
+}
+
+.next-icon-custom.disabled{
+    opacity: 0.4;
+    cursor: default;
+}
+
+.slider-nav{
+    ion-icon{
+        height: 100%;
+    }
+}
+
+.sessionTime {
+    padding: 5px 3px;
+    background: white;
+    border: 1px solid #1eb188;
+    border-radius: 20px;
+    color: #1eb188;
+}
+
+.actived {
+  background: green;
+}
+
+ion-grid {
+  padding: 0px;
+  ion-col {
+    padding: 0px;
+  }
+}
+
+.ptb-10 {
+  padding: 7px 0px;
+}
+
+.ptb-5 {
+  padding: 5px 0px;
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+.width-25 {
+  width: 25px;
+  height: 25px;
+}
+
+.background-none {
+  background: none;
+}

@@ -1,0 +1,134 @@
+<ion-content scroll="true" overflow-scroll="true" >
+  <div [hidden]="isNextSession" class="page-container has-header" (scroll)="checkScroll($event)">
+      <br />
+      <ion-card class="coach-container gradient-green to-top dark ion-padding">
+          <div class="card-top-bar">
+              <!--                <img class="avatar-image" src="../../../assets/images/avatar.png" alt=""/>-->
+              <ion-button class="white-green-button" type="button" color="primary" (click)="clickNextSession()">
+                  {{language.getWordByLanguage('nextSession')}}
+              </ion-button>
+          </div>
+          <ion-card-header>
+              <ion-card-title color="light">
+                  {{language.getWordByLanguage('coachingBookSession')}}
+              </ion-card-title>
+          </ion-card-header>
+      </ion-card>
+
+      <ion-card [ngClass]="sessionScheduleOpened_1 ? 'opened' : 'closed'">
+          <ion-card-header class="ion-padding" (click)="toggleSessionScheduleOpened_1()">
+              <ion-card-title>
+                  <h5 class="no-margin has-carrot carrot-gray">{{language.getWordByLanguage('whenSessionTitle')}}</h5>
+              </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-user-description ion-text-left" [innerHTML]="language.getWordByLanguage('whenSessionDescription')">
+          </ion-card-content>
+      </ion-card>
+
+      <ion-card [ngClass]="sessionScheduleOpened_2 ? 'opened' : 'closed'">
+          <ion-card-header class="ion-padding" (click)="toggleSessionScheduleOpened_2()">
+              <ion-card-title>
+                  <h5 class="no-margin has-carrot carrot-gray">
+                    {{language.getWordByLanguage('whoWillBeHelpingMe')}}
+                  </h5>
+              </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-user-description ion-text-left">
+            {{language.getWordByLanguage('whoWillBeHelpingMeDescription')}}
+          </ion-card-content>
+      </ion-card>
+
+      <ion-card [ngClass]="sessionScheduleOpened_3 ? 'opened' : 'closed'">
+          <ion-card-header class="ion-padding" (click)="toggleSessionScheduleOpened_3()">
+              <ion-card-title>
+                  <h5 class="no-margin has-carrot carrot-gray">
+                    {{language.getWordByLanguage('AreSessionsConfidential')}}
+                  </h5>
+              </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-user-description ion-text-left">
+              {{language.getWordByLanguage('AreSessionsConfidentialDescription')}}
+          </ion-card-content>
+      </ion-card>
+
+      <ion-card [ngClass]="sessionScheduleOpened_4 ? 'opened' : 'closed'">
+          <ion-card-header class="ion-padding" (click)="toggleSessionScheduleOpened_4()">
+              <ion-card-title>
+                  <h5 class="no-margin has-carrot carrot-gray">
+                    {{language.getWordByLanguage('HowLongIsASession')}}
+                  </h5>
+              </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-user-description ion-text-left">
+             {{language.getWordByLanguage('HowLongIsASessionDescription')}}
+          </ion-card-content>
+      </ion-card>
+
+      <ion-card [ngClass]="sessionGuideOpened ? 'opened' : 'closed'">
+          <ion-card-header class="ion-padding" (click)="toggleSessionGuideOpened()">
+              <ion-card-title>
+                  <h5 class="no-margin has-carrot carrot-gray">{{language.getWordByLanguage('howWorkTitle')}}</h5>
+              </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-user-description ion-text-left">
+<!--                <app-timeline [data]="timelineData" [titleUpper]="true"></app-timeline>-->
+              <ol>
+                  <li *ngFor="let timeline of timelineData">{{timeline}}</li>
+              </ol>
+          </ion-card-content>
+      </ion-card>
+
+      <ion-card [ngClass]="sessionScheduleOpened_5 ? 'opened' : 'closed'">
+          <ion-card-header class="ion-padding" (click)="toggleSessionScheduleOpened_5()">
+              <ion-card-title>
+                  <h5 class="no-margin has-carrot carrot-gray">
+                    {{language.getWordByLanguage('CancellingReschedulingACall')}}
+                  </h5>
+              </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-user-description ion-text-left">
+             {{language.getWordByLanguage('CancellingReschedulingACallDescription')}}
+          </ion-card-content>
+      </ion-card>
+
+      <ion-card class="hide-box-shadow">
+          <ion-card-header>
+              <ion-card-title>
+                  {{language.getWordByLanguage('whatUsersSay')}}
+              </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="no-padding">
+              <ion-slides pager="true" [options]="slidesOpts">
+                  <ion-slide *ngFor="let review of reviews">
+                      <ion-card class="wide-full gradient-green to-left dark slide-card">
+                          <div class="card-top-bar ion-padding">
+                              <img [src]="review.user_photo ? review.user_photo : '../../../assets/images/icon_user_avatar.png'" alt=""/>
+                              <div class="card-info">
+                                  <label class="card-user-name color-white ion-text-left">
+                                      {{review.user_name}}
+                                  </label>
+                                  <label class="card-user-rating ion-text-left">
+                                      <ion-rating [rate]="review.review_rating" readonly="false" size="small"></ion-rating>
+                                  </label>
+                                  <label class="card-user-time color-white ion-text-left">
+                                      {{milliseconds(review.review_datetime) | date: 'medium'}}
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="gradient-underline gradient-white"></div>
+                          <ion-card-content class="ion-padding">
+                              <label class="card-user-description color-white ion-text-left" [innerHTML]="review.review_content"></label>
+                          </ion-card-content>
+                      </ion-card>
+                  </ion-slide>
+              </ion-slides>
+          </ion-card-content>
+      </ion-card>
+  </div>
+  <div [hidden]="!isNextSession" style="height: 100%;margin-top:80px;">
+    <ion-button class="white-green-button" type="button" color="primary" (click)="clickNextSession()">
+      Close Session
+    </ion-button>
+    <iframe src="https://calendly.com/rabat24team?embed_domain=www.calendly-embed.com&amp;embed_type=Inline&amp;primary_color=58bcbb" style="width:100%;height:80%;border:none;border-radius:8px;overflow-y: scroll;" scrolling="no" frameborder="0"></iframe>
+  </div>
+</ion-content>

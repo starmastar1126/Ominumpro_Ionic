@@ -1,0 +1,16 @@
+<ion-content>
+  <div class="top-bar gradient-green to-left dark">
+    <img src="../../assets/images/logo.png" class="logo-image"  alt="Logo Image"/>
+  </div>
+  <label class="language-title">
+    {{language.getWordByLanguage('lang')}}
+  </label>
+  <div class="buttons-container ion-padding">
+    <ion-button class="gradient-green-button" type="button" expand="block" color="primary" (click)="changeLanguage('french')">
+      {{language.getWordByLanguage('french')}}
+    </ion-button>
+    <ion-button class="gradient-green-button" type="button" expand="block" color="primary" (click)="changeLanguage('english')">
+      {{language.getWordByLanguage('english')}}
+    </ion-button>
+  </div>
+</ion-content>

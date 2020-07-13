@@ -1,0 +1,127 @@
+<ion-content>
+  <div class="page-container has-header" padding>
+    <ion-list>
+      <ion-item>
+        <ion-label class="text-uppercase">
+          <b>Quiz
+            <span class="ion-float-end">{{message}}</span>
+          </b>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <!-- For Quiz  -->
+    <ng-container *ngIf="!submitted">
+
+      <!-- For quiz listing  -->
+      <ion-list class="custom-list ion-padding-vertical" *ngFor="let question of questions; let questionIndex=index;">
+
+        <!-- For Question  -->
+        <ion-list-header>
+          <ion-label class="text-uppercase" text-wrap>
+            <b>{{language.getCurrentLanguage() == 'english' ? question.question_in_english : question.question_in_french}}</b>
+          </ion-label>
+        </ion-list-header>
+        <!-- For Answer true And false  -->
+        <ng-container *ngIf="question.boolean_type">
+          <ion-item class="checkbox-option" *ngIf="question.boolean_type">
+            <ion-label text-wrap>
+              True
+            </ion-label>
+            <ion-checkbox color="light" (ionChange)="quizAnswer($event, question, questionIndex, 'True')" value="True"
+              checked="false" slot="start" mode="ios"></ion-checkbox>
+          </ion-item>
+          <ion-item class="checkbox-option">
+            <ion-label text-wrap>
+              False
+            </ion-label>
+            <ion-checkbox color="light" (ionChange)="quizAnswer($event, question, questionIndex, 'False')" value="False"
+              checked="false" slot="start" mode="ios"></ion-checkbox>
+          </ion-item>
+        </ng-container>
+        <!-- For Answers Array -->
+        <ng-container *ngFor="let ans of question?.answers; let ansIndex=index;">
+          <ion-item class="checkbox-option">
+            <ion-label text-wrap>
+              {{language.getCurrentLanguage() == 'english' ? ans.answer_in_english : ans.answer_in_french}}
+            </ion-label>
+            <ion-checkbox color="light" (ionChange)="quizAnswer($event, ans, questionIndex, ansIndex)" checked="false"
+              slot="start" mode="ios"></ion-checkbox>
+          </ion-item>
+        </ng-container>
+
+      </ion-list>
+
+
+      <div class="bottom-bar ion-text-center">
+        <div class="buttons-container">
+          <ion-row>
+            <ion-col size="12">
+              <ion-button type="button" expand="block" (click)="submitQuiz()">
+                {{language.getWordByLanguage('submit')}}
+                <!-- <ion-icon name="arrow-forward"></ion-icon> -->
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+
+    </ng-container>
+
+    <div *ngIf="submitted">
+
+      <!-- For Answers listing -->
+      <ion-list class="custom-list ion-padding-vertical" *ngFor="let question of questions; let questionIndex=index;">
+
+        <!-- For Question  -->
+        <ion-list-header>
+          <ion-label class="text-uppercase" text-wrap>
+            <b>{{language.getCurrentLanguage() == 'english' ? question.question_in_english : question.question_in_french}}</b>
+          </ion-label>
+        </ion-list-header>
+        <!-- For Answer true And false  -->
+        <ng-container *ngIf="question.boolean_type">
+          <ion-item class="checkbox-option" [ngClass]="{'checkbox-warning': question.answer_in_english  != 'True'}">
+            <ion-label text-wrap>
+              True
+            </ion-label>
+            <ion-checkbox color="light" (ionChange)="quizAnswer($event, question, questionIndex, 'True')" value="True"
+            [checked]="question.answer_in_english === 'True'" slot="start" mode="ios"></ion-checkbox>
+          </ion-item>
+          <ion-item class="checkbox-option" [ngClass]="{'checkbox-warning': question.answer_in_english  != 'False'}" >
+            <ion-label text-wrap>
+              False
+            </ion-label>
+            <ion-checkbox color="light" (ionChange)="quizAnswer($event, question, questionIndex, 'False')" value="False"
+            [checked]="question.answer_in_english === 'False'" slot="start" mode="ios"></ion-checkbox>
+          </ion-item>
+        </ng-container>
+        <!-- For Answers Array -->
+        <ng-container *ngFor="let ans of question?.answers; let ansIndex=index;">
+          <ion-item class="checkbox-option" [ngClass]="{'checkbox-warning': ans.correct_answer != '1'}">
+            <ion-label text-wrap>
+              {{language.getCurrentLanguage() == 'english' ? ans.answer_in_english : ans.answer_in_french}}
+            </ion-label>
+            <ion-checkbox color="light" (ionChange)="quizAnswer($event, ans, questionIndex, ansIndex)" [checked]="ans.correct_answer === '1'"
+              slot="start" mode="ios"></ion-checkbox>
+          </ion-item>
+        </ng-container>
+
+      </ion-list>
+
+      <div class="bottom-bar ion-text-center">
+        <div class="buttons-container">
+          <ion-row>
+            <ion-col size="12">
+              <ion-button type="button" expand="block" (click)="navigatePage('video-summary')">
+                 {{language.getWordByLanguage('returnlesson')}}
+                <!-- <ion-icon name="arrow-forward"></ion-icon> -->
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>

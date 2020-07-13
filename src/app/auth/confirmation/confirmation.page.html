@@ -1,0 +1,27 @@
+<ion-content>
+    <div class="page-container"></div>
+    <div class="overlay gradient-green light to-right"></div>
+    <div class="overlay gradient-black dark to-bottom">
+        <img src="../../../assets/images/logo.png" class="logo-image" />
+        <ion-card class="wide-full">
+            <ion-card-header *ngIf="type == 'start'">
+                <ion-label>{{language.getWordByLanguage('goodMorning')}} <strong>{{userName}}</strong></ion-label>
+            </ion-card-header>
+            <ion-card-content>
+                <h2>
+                    {{texts[type]?.text}}
+                </h2>
+                <ion-button class="gradient-green-button" type="button" expand="block" color="primary" (click)="navigateByType()">
+                    {{texts[type]?.button}}
+                </ion-button>
+            </ion-card-content>
+        </ion-card>
+        <ion-label *ngIf="type == 'start'" class="color-white skip-button ion-text-center ion-text-uppercase" (click)="navigateToMain()">
+            {{language.getWordByLanguage('skip')}}
+        </ion-label>
+        
+        <ion-label class="color-white ion-text-center welcome-message">
+            {{message}}
+        </ion-label>
+    </div>
+</ion-content>

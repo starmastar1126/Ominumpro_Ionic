@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contacts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-container has-header" (scroll)="checkScroll($event)"> </div>
+  <div class="overlay gradient-black to-bottom dark">
+    <ion-card class="wide-full">
+      <ion-card-header class="gradient-green to-left dark ion-padding" *ngIf="selectedDay != null">
+          <ion-card-subtitle color="light">{{calendar.year}}</ion-card-subtitle>
+          <ion-card-title color="light">
+              {{language.weeks[language.getCurrentLanguage()][selectedDay.weekday] + ', ' + language.months[language.getCurrentLanguage()][calendar.month - 1] + ' ' + selectedDay.day}}
+          </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-toolbar *ngIf="selectedDay != null">
+          <ion-buttons slot="start">
+            <ion-button slot="icon-only" (click)="getCalendarDates('last')">
+              <ion-icon name="arrow-back" color="dark"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title class="ion-text-center">
+            {{language.months[language.getCurrentLanguage()][calendar.month - 1] + ' ' + calendar.year}}
+          </ion-title>
+          <ion-buttons slot="end">
+            <ion-button slot="icon-only" (click)="getCalendarDates('next')">
+              <ion-icon name="arrow-forward" color="dark"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+          <table>
+            <thead>
+              <tr>
+                <th class="ion-text-center"><label>S</label></th>
+                <th class="ion-text-center"><label>M</label></th>
+                <th class="ion-text-center"><label>T</label></th>
+                <th class="ion-text-center"><label>W</label></th>
+                <th class="ion-text-center"><label>T</label></th>
+                <th class="ion-text-center"><label>F</label></th>
+                <th class="ion-text-center"><label>S</label></th>
+              </tr>
+            </thead>
+            <tbody *ngIf="calendar != null">
+              <tr *ngFor="let week of calendar.days; let w = index;">
+                <td class="ion-text-center" *ngFor="let day of week; let d = index;" (click)="selectDay(w, d)">
+                  <label [ngClass]="(day.selected || day.upcoming ? 'gradient-green color-white' : '') + (day.upcoming ? ' upcoming' : ' dark') + (day.enable ? '' : ' disabled')">
+                    {{day.day == 'none' ? '' : day.day}}
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <ion-item class="time-picker userList">
+            <ion-list class="min-width-100" *ngIf="count">
+              <ion-item class="userItem" *ngFor="let session of sessions; let i = index" (click)="callNow(i)">
+                <div class="d-flex">
+                  <div class="header">
+                    <div class="avatar">
+                      <ion-button fill="clear" expand="full">
+                        <ion-img class="ion-img" src="{{session.photo}}" #photo></ion-img>
+                      </ion-button>
+                    </div>
+                  </div>
+
+                  <div class="width-100">
+                    <div class="my-label font">
+                      <strong> {{session.name}} </strong>
+                      <code> {{session.phone}} </code>
+                    </div>
+
+                    <div class="my-label">
+                      {{getTime(session.cs_datetime)}}, {{session.time_type == 1 ? '30 min' : '60 min'}}
+                    </div>
+                  </div>
+                </div>
+              </ion-item>
+            </ion-list>
+            <ion-label class="min-width-100" *ngIf="!count">
+              empty comming session!
+            </ion-label>
+          </ion-item>
+         
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

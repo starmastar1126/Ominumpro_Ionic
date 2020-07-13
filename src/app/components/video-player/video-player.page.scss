@@ -1,0 +1,240 @@
+@-webkit-keyframes spinRight {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@-moz-keyframes spinRight {
+  0% {
+    -moz-transform: rotate(0)
+  }
+  100% {
+    -moz-transform: rotate(360deg)
+  }
+}
+
+@keyframes spinRight {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@-webkit-keyframes grow {
+  0% {
+    width: 1px;
+    height: 1px;
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@-moz-keyframes grow {
+  0% {
+    width: 1px;
+    height: 1px;
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 1px;
+    height: 1px;
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+
+  video {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-overlay {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: translate(0, -100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,0));
+
+    .loading-spinner-container {
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      top: 30%;
+      text-align: center;
+      z-index: 9999;
+
+      .loading-spinner-outer {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        top: 0;
+        left: calc(50% - 30px);
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        border-top: 3px solid transparent;
+        border-right: 3px solid white;
+        border-bottom: 3px solid white;
+        border-left: 3px solid white;
+        -webkit-animation: spinRight 2s linear infinite;
+        -o-animation: spinRight 2s linear infinite;
+        animation: spinRight 2s linear infinite;
+
+        .loading-spinner-inner {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          border-top: 3px solid white;
+          border-right: 3px solid white;
+          border-bottom: 3px solid transparent;
+          border-left: 3px solid white;
+          margin-top: 7px;
+          margin-left: 7px;
+          -webkit-animation: spinRight .5s linear infinite;
+          -o-animation: spinRight .5s linear infinite;
+          animation: spinRight .5s linear infinite;
+
+          .loading-spinner-bubble {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .5);
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-animation: grow .5s linear infinite;
+            -o-animation: grow .5s linear infinite;
+            animation: grow .5s linear infinite;
+          }
+        }
+      }
+
+      .loading-message {
+        position: absolute;
+        display: block;
+        width: 100%;
+        bottom: 0;
+        color: white;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.video-controls {
+  width: 100%;
+  height: 0;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+
+  ion-toolbar {
+    height: 50px;
+    --min-height: 50px;
+
+    .video-seek-bar {
+      .video-time-label-container {
+        height: 10px;
+
+        .time-label {
+          font-size: 10px !important;
+        }
+
+        .time-start {
+          float: left;
+        }
+
+        .time-end {
+          float: right;
+        }
+      }
+
+      ion-range {
+        height: 15px;
+        padding: 0;
+        margin: 5px 20px 0 20px;
+        --knob-size: 10px;
+        --bar-height: 5px;
+        --bar-background: #F4F5F8;
+        --bar-background-active: #10D9B3;
+      }
+    }
+
+    .volume-controls {
+      position: absolute;
+      width: 0;
+      height: 30px;
+      padding: 5px;
+      margin-left: 0;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      background: rgba(0,0,0,.8);
+      opacity: 0;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -ms-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+
+      ion-range {
+        height: 20px;
+        padding: 0;
+        --knob-size: 10px;
+        --bar-height: 4px;
+        --bar-background: #F4F5F8;
+        --bar-background-active: rgba(0,0,0,.5);
+      }
+    }
+
+    .volume-controls.opened {
+      width: 100px;
+      opacity: 1;
+      margin-left: -100px;
+    }
+  }
+}
+
+.video-controls.fixed {
+  height: 50px;
+}
+
+.video-controls.opened {
+  height: 50px;
+  margin-top: -50px;
+}

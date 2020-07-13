@@ -1,0 +1,6 @@
+<ul class="timeline" [ngClass]="side == 'right' ? 'side-right' : 'side-left'">
+  <li class="timeline-item" *ngFor="let item of data">
+<!--    <label class="timeline-title" [ngClass]="titleUpper ? 'text-uppercase' : ''">{{item.title}}</label>-->
+    <label class="timeline-description">{{item.description}}</label>
+  </li>
+</ul>

@@ -1,0 +1,95 @@
+<ion-content>
+    <div class="page-container has-header" (scroll)="checkScroll($event)">
+        <br />
+        <ion-card class="gradient-green to-left dark">
+            <img src="../../../assets/images/IconMindfulnessTools.png" alt="" />
+            <div class="gradient-underline gradient-white"></div>
+            <ion-card-header class="no-padding">
+                <ion-row class="ion-padding">
+                    <ion-col size="8">
+                        <ion-card-title class="font-poppins color-white">
+                            {{language.getWordByLanguage('mindfulExercise')}}
+                        </ion-card-title>
+                        <ion-card-subtitle class="color-white">
+                            
+                        </ion-card-subtitle>
+                    </ion-col>
+                    <ion-col size="4">
+                        <ion-button class="white-green-button" type="button" expand="block" color="primary" (click)="navigatePage('mindful-select')">
+                            {{language.getWordByLanguage('play')}}
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-card-header>
+        </ion-card>
+        <ion-card class="gradient-green to-left dark">
+            <div class="card-image-title ion-text-center text-uppercase">
+                {{language.getWordByLanguage('breatheIn')}}
+            </div>
+            <div class="gradient-underline gradient-white"></div>
+            <ion-card-header class="no-padding">
+                <ion-row class="ion-padding">
+                    <ion-col size="8">
+                        <ion-card-title class="font-poppins color-white">
+                            {{language.getWordByLanguage('breathingExercise')}}
+                        </ion-card-title>
+                        <ion-card-subtitle class="color-white">
+                            
+                        </ion-card-subtitle>
+                    </ion-col>
+                    <ion-col size="4">
+                        <ion-button class="white-green-button" type="button" expand="block" color="primary" (click)="navigatePage('breathing-select')">
+                            {{language.getWordByLanguage('play')}}
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-card-header>
+        </ion-card>
+        <ion-card class="gradient-green to-left dark">
+            <img src="../../../assets/images/Toolshappy.png" alt="" />
+            <div class="gradient-underline gradient-white"></div>
+            <ion-card-header class="no-padding">
+                <ion-row class="ion-padding">
+                    <ion-col size="12">
+                        <ion-card-title class="font-poppins color-white">
+                            {{language.getWordByLanguage('mindfulExercise1')}}
+                        </ion-card-title>
+                        <ion-card-subtitle class="color-white">
+                            {{language.getWordByLanguage('meditation1descr')}}  
+                        </ion-card-subtitle>
+                    </ion-col>
+                    
+                    <ion-button [class.button-disabled]="isPlayAudioFile[0]" class="white-green-button" type="button" (click)="playAudio(0)">
+                        Play Audio
+                    </ion-button>
+                    <ion-button [class.button-disabled]="!isPlayAudioFile[0]" class="white-green-button" type="button" (click)="stopAudio(0)">
+                        Stop Audio
+                    </ion-button>
+                </ion-row>
+            </ion-card-header>
+        </ion-card>
+        <ion-card class="gradient-green to-left dark">
+            <img src="../../../assets/images/Toolshappy.png" alt="" />
+            <div class="gradient-underline gradient-white"></div>
+            <ion-card-header class="no-padding">
+                <ion-row class="ion-padding">
+                    <ion-col size="12">
+                        <ion-card-title class="font-poppins color-white">
+                            {{language.getWordByLanguage('mindfulExercise2')}}
+                        </ion-card-title>
+                        <ion-card-subtitle class="color-white">
+                            {{language.getWordByLanguage('meditation2descr')}}  
+                        </ion-card-subtitle>
+                    </ion-col>
+                    
+                    <ion-button [class.button-disabled]="isPlayAudioFile[1]" class="white-green-button" type="button" (click)="playAudio(1)">
+                        Play Audio
+                    </ion-button>
+                    <ion-button [class.button-disabled]="!isPlayAudioFile[1]" class="white-green-button" type="button" (click)="stopAudio(1)">
+                        Stop Audio
+                    </ion-button>
+                </ion-row>
+            </ion-card-header>
+        </ion-card>
+    </div>
+</ion-content>

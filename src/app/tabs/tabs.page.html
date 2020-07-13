@@ -1,0 +1,111 @@
+<div class="tabs">
+    <div class="top-bar gradient-green to-left fill scrolled">
+        <ion-toolbar>
+            <img src="../../assets/images/logo.png" class="logo-image" alt="Logo Image" />
+            <ion-row align-items-center>
+                <ion-col size="2">
+                    <ion-buttons style="margin-top: 28px; width: 40px;" (click)="navigateToBack()">
+                        <ion-button slot="icon-only">
+                            <ion-icon name="arrow-back" class="color-white"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </ion-col>
+                <ion-col size="8" class="ion-text-center">
+                    <ion-label class="color-white">
+                        {{language.getWordByLanguage(page)}}
+                    </ion-label>
+                </ion-col>
+                <ion-col size="2">
+                    <ion-buttons *ngIf="page != 'profile'" (click)="navigatePage('profile')">
+                        <ion-button>
+                            <img src="../../assets/images/icon_user.png" alt="" />
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons *ngIf="page == 'profile'" (click)="toggleSideMenu()">
+                        <ion-button>
+                            <img src="../../assets/images/icon_more.png" alt="" />
+                        </ion-button>
+                    </ion-buttons>
+                </ion-col>
+            </ion-row>
+        </ion-toolbar>
+
+        <ion-toolbar *ngIf="surveryCountWeekly" (click)="navigateToSurvey('2')" class="banner">
+            <ion-item> 
+                <ion-thumbnail style="padding: 8px;" slot="start">
+                    <img src="../../assets/images/IconWeekly1.png">
+                </ion-thumbnail>
+                <ion-label class="ion-text-uppercase ion-text-wrap"><b>{{language.getWordByLanguage('rateYourWeek')}}</b></ion-label>
+                <ion-button class="ion-text-uppercase " fill="clear" slot="end">{{language.getWordByLanguage('open')}}</ion-button>
+            </ion-item>
+        </ion-toolbar>
+
+        
+        <ion-toolbar style="padding-top: 0;" *ngIf="surveryCountMonthly" (click)="navigateToSurvey('0')" class="banner">
+            <ion-item>
+                <ion-thumbnail style="padding: 8px;" slot="start">
+                    <img src="../../assets/images/heartbeat.png">
+                </ion-thumbnail>
+                <ion-label class="ion-text-uppercase ion-text-wrap"><b>{{language.getWordByLanguage('rateYourMonth')}}</b></ion-label>
+                <ion-button class="ion-text-uppercase " fill="clear" slot="end">{{language.getWordByLanguage('open')}}</ion-button>
+            </ion-item>
+        </ion-toolbar>
+
+    </div>
+
+    <div class="tabs-content">
+        <ion-router-outlet [swipeGesture]="false"></ion-router-outlet>
+    </div>
+    
+    <div class="tabs-bar">
+        <div class="tab-button tab-home ion-text-center" [ngClass]="page == 'main' ? 'tab-selected' : ''"
+            (click)="navigatePage('main')">
+            <img class="icon-image icon-landscape" src="../../assets/images/icon_home.png" alt="" />
+            <br>
+            <label>
+                {{language.getWordByLanguage('main')}}
+            </label>
+        </div>
+        <div *ngIf="level != 2" class="tab-button tab-surveys ion-text-center"
+            [ngClass]="page == 'surveys' ? 'tab-selected' : ''" (click)="navigatePage('surveys')">
+            <ion-badge *ngIf="surveryCount">{{surveryCount}}</ion-badge>
+            <img class="icon-image icon-portrait" src="../../assets/images/icon_surveys.png" alt="" />
+            <br>
+            <label>
+                {{language.getWordByLanguage('surveys')}}
+            </label>
+        </div>
+        <div *ngIf="level != 2" class="tab-button tab-coaching ion-text-center"
+            [ngClass]="page == 'coaching' ? 'tab-selected' : ''" (click)="navigatePage('coaching')">
+            <img class="icon-image icon-landscape" src="../../assets/images/icon_coaching.png" alt="" />
+            <br>
+            <label>
+                {{language.getWordByLanguage('coaching')}}
+            </label>
+        </div>
+        <div *ngIf="level != 2" class="tab-button tab-micro-learning ion-text-center"
+            [ngClass]="page == 'micro-learning' ? 'tab-selected' : ''" (click)="navigatePage('micro-learning')">
+            <img class="icon-image icon-landscape" src="../../assets/images/icon_micro_learning.png" alt="" />
+            <br>
+            <label>
+                {{language.getWordByLanguage('micro-tab')}}
+            </label>
+        </div>
+        <div *ngIf="level != 2" class="tab-button tab-tools ion-text-center"
+            [ngClass]="page == 'tools' ? 'tab-selected' : ''" (click)="navigatePage('tools')">
+            <img class="icon-image icon-portrait" src="../../assets/images/icon_tools.png" alt="" />
+            <br>
+            <label>
+                {{language.getWordByLanguage('tools')}}
+            </label>
+        </div>
+        <div *ngIf="level == 2" class="tab-button tab-contacts ion-text-center"
+            [ngClass]="page == 'contacts' ? 'tab-selected' : ''" (click)="navigatePage('contacts')">
+            <img class="icon-image icon-landscape" src="../../assets/images/icon_coaching.png" alt="" />
+            <br>
+            <label>
+                {{language.getWordByLanguage('contacts')}}
+            </label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,220 @@
+@keyframes holderZoomOut {
+  0% {
+    width: 350px;
+    height: 350px;
+  }
+  100% {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@keyframes holderZoomIn {
+  0% {
+    width: 250px;
+    height: 250px;
+  }
+  100% {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@keyframes spinnerZoomOut {
+  0% {
+    width: 300px;
+    height: 300px;
+  }
+  100% {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@keyframes spinnerZoomIn {
+  0% {
+    width: 220px;
+    height: 220px;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@keyframes stateZoomOut {
+  0% {
+    width: 200px;
+    height: 200px;
+    padding: 85px 0;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    padding: 60px 0;
+  }
+}
+
+@keyframes stateZoomIn {
+  0% {
+    width: 150px;
+    height: 150px;
+    padding: 60px 0;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    padding: 85px 0;
+  }
+}
+
+@keyframes countdown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+ion-content {
+  --background: #10D9B3;
+}
+
+.page-container {
+  background-image: url("../../../assets/images/breathing_back.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0 0;
+}
+
+.time-counts-label {
+  font-size: 20px;
+}
+
+.breathing-holder-container {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  top: 50%;
+  left: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: rgba(16,217,179,.5);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  .breathing-spinner {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: rgba(16,217,179,.5);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    .breathing-state {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      left: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background: white;
+      font-size: 20px;
+      color: #004336;
+      padding: 85px 0;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.breathing-holder-container.breathe-in {
+  animation: holderZoomOut 4s linear;
+
+  .breathing-spinner {
+    animation: spinnerZoomOut 4s linear;
+
+    .breathing-state {
+      animation: stateZoomOut 4s linear;
+    }
+  }
+}
+
+.breathing-holder-container.hold {
+  width: 250px;
+  height: 250px;
+
+  .breathing-spinner {
+    width: 220px;
+    height: 220px;
+
+    .breathing-state {
+      width: 150px;
+      height: 150px;
+      padding: 60px 0;
+    }
+  }
+}
+
+.breathing-holder-container.balance.breathe-out {
+  animation: holderZoomIn 4s linear;
+
+  .breathing-spinner {
+    animation: spinnerZoomIn 4s linear;
+
+    .breathing-state {
+      animation: stateZoomIn 4s linear;
+    }
+  }
+}
+
+.breathing-holder-container.relax.breathe-out,
+.breathing-holder-container.fall.breathe-out {
+  animation: holderZoomIn 8s linear;
+
+  .breathing-spinner {
+    animation: spinnerZoomIn 8s linear;
+
+    .breathing-state {
+      animation: stateZoomIn 8s linear;
+    }
+  }
+}
+
+.countdown-time-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150px !important;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: countdown .85s ease-in-out infinite;
+}
+
+.button-container {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}

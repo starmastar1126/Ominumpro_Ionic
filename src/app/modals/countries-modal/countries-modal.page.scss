@@ -1,0 +1,24 @@
+ion-title {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.list-container {
+  width: 100%;
+  height: 100%;
+}
+
+ion-list {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+ion-item {
+  --padding-start: 0;
+}
+
+.country-name {
+  font-family: "Poppins";
+  text-transform: uppercase;
+}

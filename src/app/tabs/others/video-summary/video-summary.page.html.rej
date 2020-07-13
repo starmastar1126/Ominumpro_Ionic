@@ -1,0 +1,12 @@
+diff a/src/app/tabs/others/video-summary/video-summary.page.html b/src/app/tabs/others/video-summary/video-summary.page.html	(rejected hunks)
+@@ -3,8 +3,8 @@
+     <ion-card class="wide-full hide-box-shadow">
+       <ion-card-content>
+         <ion-card class="wide-full">
+-          <app-video-player [source]="video.file_link" [fixedControls]="false" [controls]="true"></app-video-player>
+-        </ion-card>
++        <app-video-player [source]="video.file_link" [fixedControls]="false" [controls]="true"></app-video-player>
++       </ion-card>
+         <ion-row>
+           <ion-col size="3">
+             <ion-chip class="ion-chip-custom">

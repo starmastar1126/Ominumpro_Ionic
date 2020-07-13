@@ -1,0 +1,12 @@
+.page-container {
+  background: url("../../assets/images/woman-logo.png") no-repeat;
+  background-size: 100%;
+
+  .logo-image {
+    position: absolute;
+    width: 300px;
+    top: 45%;
+    left: calc(50% - 150px);
+    z-index: 9999;
+  }
+}

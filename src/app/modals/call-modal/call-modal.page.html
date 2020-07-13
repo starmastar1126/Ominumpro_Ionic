@@ -1,0 +1,31 @@
+<div class="page-container gradient-green to-top dark ion-text-center" [ngClass]="callType">
+  <img [src]="userPhoto" class="user-profile-picture" alt="User Profile Picture" /><br>
+  <div class="video-container">
+    <div id="remote-stream"></div>
+    <div id="local-stream"></div>
+  </div>
+  <ion-label color="light" class="user-name-label">{{userName}}</ion-label><br>
+  <ion-label color="light" class="call-time-label">{{callTimeLabel}}</ion-label><br>
+  <div class="button-container ion-text-center" *ngIf="callDirection == 'outbound'">
+    <ion-button class="call-button hangup-call" type="button" color="danger" (click)="call.hangupCall()">
+      <ion-icon name="call" color="light"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="button-container" *ngIf="callDirection == 'inbound'">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button class="call-button receive-call" type="button" color="success" (click)="call.answerCall()">
+          <ion-icon name="call" color="light"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button class="call-button hangup-call" type="button" color="danger" (click)="call.hangupCall()">
+          <ion-icon name="call" color="light"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <audio id="ringtone-player" [src]="sounds[callDirection]" loop style="display: none;"></audio>
+  <audio id="effect-player" [src]="effects[callStatus]" style="display: none;"></audio>
+</div>

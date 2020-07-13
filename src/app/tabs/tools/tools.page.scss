@@ -1,0 +1,32 @@
+img {
+  width: 120px;
+  height: 120px;
+  margin: 10px auto;
+}
+
+.card-image-title {
+  width: 120px;
+  height: 120px;
+  margin: 10px auto;
+  border: 20px solid #10D9B3;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  color: #0B9DA6;
+  background: white;
+  line-height: 80px;
+}
+
+ion-card-title {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+ion-card-subtitle {
+  margin-top: 5px;
+}
+
+ion-button {
+  height: 40px;
+  font-size: 10px !important;
+}

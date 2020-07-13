@@ -1,0 +1,36 @@
+<ion-content>
+    <div class="page-container gradient-green dark">
+        <div class="main-content">
+            <ion-card class="wide-full hide-box-shadow">
+                <ion-card-header>
+                    <ion-card-title class="ion-text-center" color="light">
+                        {{language.getWordByLanguage(title)}}  
+                    </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <div class="ion-text-center">
+                        <circle-progress
+                                [percent]="percent"
+                                [radius]="90"
+                                [titleColor]="'#DD6A28'"
+                                [titleFontSize]="'45'"
+                                [outerStrokeWidth]="12"
+                                [innerStrokeWidth]="3"
+                                [outerStrokeColor]="'#DD6A28'"
+                                [innerStrokeColor]="'#E7E6E6'"
+                                [animation]="true"
+                                [animationDuration]="2000"
+                                [showSubtitle]="false"
+                        ></circle-progress>
+                    </div>
+                    <div class="description color-white" [innerHTML]="description"></div>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="bottom-footer">
+            <ion-button class="white-green-button no-margin" type="button" expand="block" color="primary" (click)="navigateToSurveys()">
+                {{language.getWordByLanguage('completeSurvey')}}
+            </ion-button>
+        </div>
+    </div>
+</ion-content>

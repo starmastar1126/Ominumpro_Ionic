@@ -1,0 +1,76 @@
+ion-content {
+    --background: url(../../../assets/images/man-logo.png) no-repeat top cover #fff;
+    position: relative;
+    width: 100%;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+ion-toolbar {
+    --background: transparent;
+}
+
+ion-card {
+  ion-card-content {
+    .bubble-image {
+      display: block;
+      width: 50px;
+      margin: 30px auto 0 auto;
+    }
+
+    ion-item {
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.card {
+    margin: 0 auto;
+
+    .header {
+        height: 200px;
+
+        .avatar {
+            width: 160px;
+            height: 160px;
+            position: relative;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                bottom: calc(-1*(80px + 4px));
+                border: 8px solid #9Dc912;
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+.card-body {
+    background-color: #ffffff;
+    padding: 30px;
+    height: calc(100vh - (200px + 56px));
+    overflow: hidden;
+
+    .user-meta {
+        padding-top: 40px;
+
+        .playername {
+            font-size: 24px;
+            font-weight: 600;
+            color: #303940;
+        }
+
+        .country {
+            font-size: 90%;
+            color: #949ea6;
+            text-transform: uppercase;
+            margin: 0 auto;
+        }
+    }
+}

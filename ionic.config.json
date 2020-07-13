@@ -1,0 +1,7 @@
+{
+  "name": "plextor_mobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

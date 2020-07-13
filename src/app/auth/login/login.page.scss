@@ -1,0 +1,45 @@
+.page-container {
+  background: url("../../../assets/images/man-logo.png") no-repeat;
+  background-size: 100%;
+
+  ion-card {
+    ion-card-content {
+      .login-form {
+        margin-top: 150px;
+
+        .forgot-password {
+          display: block;
+          margin-top: 30px;
+          margin-bottom: 30px;
+        }
+
+        .create-account {
+          display: block;
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.m-auto {
+  margin: auto;
+  color: white;
+  padding-left: 10px;
+}
+
+.mtb-20 {
+  margin: 20px 0px;
+}
+
+ion-checkbox {
+  margin: auto;
+}
+
+.width-45 {
+  width: 45%;
+}

@@ -1,0 +1,46 @@
+<div class="page-container" [ngStyle]="{background: 'url(' + api + image + ')'}">
+
+    <ion-card class="wide-full hide-box-shadow">
+        <ion-card-header class="ion-padding-vertical">
+            <ion-toolbar padding-top>
+                <ion-row align-items-center>
+                    <ion-col>
+                        <ion-buttons style="width: 40px;" (click)="dismissModal()">
+                            <ion-button slot="icon-only">
+                                <ion-icon name="arrow-back" class="color-white"></ion-icon>
+                                &nbsp;
+                                <ion-label color="light">BACK</ion-label>  
+                            </ion-button>
+                        </ion-buttons>
+                    </ion-col>
+                    <ion-col class="ion-text-center">
+                        
+                    </ion-col>
+                    <ion-col class="ion-text-center">
+                        <countdown  #countdown class="countdowmn" (finished)="finishedExercise()" (event)="handleEvent($event)" [config]="{format: 'mm:ss', demand: true }" ></countdown>
+                    </ion-col>
+                </ion-row>
+                <ion-card-subtitle color="light"></ion-card-subtitle>
+
+            </ion-toolbar>
+        </ion-card-header>
+        <!-- <h3 color="light" class="ion-text-center" >{{language.getWordByLanguage('mindfulExercise')}}</h3> -->
+    </ion-card>
+    <div class="buttons-container ion-padding" style="margin-top:8px;">
+        <!--  <ion-toolbar >
+            <ion-button  slot ="end" size="smal">{{timers}}</ion-button>
+           
+        </ion-toolbar>
+    
+        <ion-button  class="white-green-button" type ="button" color="primary" expand="block" >{{timers}}</ion-button>  -->
+        <ion-button *ngIf="paused" class="gradient-green-button" type="button" expand="block" color="primary"
+            (click)="play()"> {{language.getWordByLanguage('play1')}} </ion-button>
+        <ion-button *ngIf="!paused" class="gradient-green-button" type="button" expand="block" color="primary"
+            (click)="pause()"> {{language.getWordByLanguage('pause1')}}</ion-button>
+
+    </div>
+</div>
+
+
+
+<audio id="audio-player" [src]="api + sound" autoplay playsinline loop></audio>
